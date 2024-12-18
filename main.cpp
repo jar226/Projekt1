@@ -61,14 +61,14 @@ double genrand64_real1(void)
 {
     return (genrand64_int64() >> 11) * (1.0/9007199254740991.0);
 }
-void GenerowanieTab(int N, double *tab)//funkcja generujaca liczy z rok³adu jednorodnego
+void GenerowanieTab(int N, double *tab)//funkcja generujaca liczy z rokï¿½adu jednorodnego
 {
     for(int i=0;i<N;i++)
     {
         tab[i]=genrand64_real1();
     }
 }
-void GenerowanieTabRozWykladniczy(int N, double *tab)//funkcja generujaca liczy z rozk³adu wyk³adniczego
+void GenerowanieTabRozWykladniczy(int N, double *tab)//funkcja generujaca liczy z rozkï¿½adu wykï¿½adniczego
 {
     double lambda=2.0;
 
@@ -77,7 +77,7 @@ void GenerowanieTabRozWykladniczy(int N, double *tab)//funkcja generujaca liczy 
         tab[i]=-(1.0/lambda)*(log(genrand64_real1()));
     }
 }
-void GenerowanieTabRozNormalny(int N, double *tab)//funkcja generujaca liczy z rozk³adu normalnego
+void GenerowanieTabRozNormalny(int N, double *tab)//funkcja generujaca liczy z rozkï¿½adu normalnego
 {
     double R,theta;
     double u1,u2;
@@ -93,7 +93,7 @@ void GenerowanieTabRozNormalny(int N, double *tab)//funkcja generujaca liczy z r
         tab[i]=R*sin(theta);
     }
 }
-void GenerowanieTabRozArcusaSinusa(int N, double *tab)//funkcja generujaca liczy a rozk³adu arcusasinusa
+void GenerowanieTabRozArcusaSinusa(int N, double *tab)//funkcja generujaca liczy a rozkï¿½adu arcusasinusa
 {
     double u;
     for(int i=0;i<N;i++)
@@ -236,7 +236,7 @@ void HybridSort(double *tab,int lewy, int prawy, int rozmiar_krytyczny, int &lpo
         }
     }
 }
-void PowtorzQS(int L, int N, double *tab,int lewy, int prawy, int &lporownan, int &lzamian)//funkcja powtarzaj¹ca losowanie QS L razy
+void PowtorzQS(int L, int N, double *tab,int lewy, int prawy, int &lporownan, int &lzamian)//funkcja powtarzajï¿½ca losowanie QS L razy
 {
     double sr_porownan=0,sr_zamian=0;
     double kw_porownan=0,kw_zamian=0;
@@ -267,7 +267,7 @@ void PowtorzQS(int L, int N, double *tab,int lewy, int prawy, int &lporownan, in
     plik<<kw_zamian/L<<endl;
     plik.close();
 }
-void PowtorzBS(int L, int N, double *tab, int &lporownan, int &lzamian)//funkcja powtarzaj¹ca losowanie BS L razy
+void PowtorzBS(int L, int N, double *tab, int &lporownan, int &lzamian)//funkcja powtarzajï¿½ca losowanie BS L razy
 {
     ofstream plik;
     plik.open("BubbleSort.txt",ios::app);
@@ -295,7 +295,7 @@ void PowtorzBS(int L, int N, double *tab, int &lporownan, int &lzamian)//funkcja
     plik.close();
 }
 
-void PowtorzHS(int L, int N, double *tab,int lewy, int prawy, int rozmiar_krytyczny, int &lporownan, int &lzamian)//funkcja powtarzaj¹ca losowanie HS L razy
+void PowtorzHS(int L, int N, double *tab,int lewy, int prawy, int rozmiar_krytyczny, int &lporownan, int &lzamian)//funkcja powtarzajï¿½ca losowanie HS L razy
 {
     ofstream plik;
     plik.open("HybridSort.txt",ios::app);
@@ -327,7 +327,7 @@ void PowtorzHS(int L, int N, double *tab,int lewy, int prawy, int rozmiar_krytyc
     plik<<rozmiar_krytyczny<<endl;
     plik.close();
 }
-void fQS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcja losuj¹ca QS dla ró¿nych wielkoœci tablic z atrybutu listaN
+void fQS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcja losujï¿½ca QS dla rï¿½nych wielkoï¿½ci tablic z atrybutu listaN
 {
     ofstream plik;
     plik.open("QuickSort.txt");
@@ -336,7 +336,7 @@ void fQS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcj
         PowtorzQS(L,listaN[i],tab,0,listaN[i]-1,lporownan,lzamian);
     }
 }
-void fBS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcja losuj¹ca BS dla ró¿nych wielkoœci tablic z atrybutu listaN
+void fBS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcja losujï¿½ca BS dla rï¿½nych wielkoï¿½ci tablic z atrybutu listaN
 {
     ofstream plik;
     plik.open("BubbleSort.txt");
@@ -345,7 +345,7 @@ void fBS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcj
         PowtorzBS(L,listaN[i],tab,lporownan,lzamian);
     }
 }
-void fHS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcja losuj¹ca HS dla ró¿nych wielkoœci tablic z atrybutu listaN
+void fHS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcja losujï¿½ca HS dla rï¿½nych wielkoï¿½ci tablic z atrybutu listaN
 {
     ofstream plik;
     plik.open("HybridSort.txt");
@@ -354,7 +354,7 @@ void fHS(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcj
         PowtorzHS(L,listaN[i],tab,0,listaN[i]-1,7,lporownan,lzamian);
     }
 }
-void fHS2(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcja powtarzaj¹ca losowania HS dla rozmairów krytycznych od 2 do 50
+void fHS2(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkcja powtarzajï¿½ca losowania HS dla rozmairï¿½w krytycznych od 2 do 50
 {
     ofstream plik;
     plik.open("HybridSort.txt");
@@ -366,7 +366,7 @@ void fHS2(int L, int listaN[], double *tab, int &lporownan, int &lzamian)//funkc
         }
     }
 }
-void DaneHistogram(int L, int N, double *tab,int lewy, int prawy, int rozmiar_krytyczny, int &lporownan, int &lzamian)//funkcja zabieraj¹ca dane z losowañ do stworzenia histogramu
+void DaneHistogram(int L, int N, double *tab,int lewy, int prawy, int rozmiar_krytyczny, int &lporownan, int &lzamian)//funkcja zabierajï¿½ca dane z losowaï¿½ do stworzenia histogramu
 {
     ofstream plik;
     plik.open("DaneHistogramHS10000.txt");
@@ -411,7 +411,7 @@ int main()
      N=10000;
      DaneHistogram(L,N,tablica,0,N,7,lporownan,lzamian);
 
-
+    //kolega
     delete[] tablica;
     return 0;
 }
